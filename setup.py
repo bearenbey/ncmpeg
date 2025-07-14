@@ -6,7 +6,7 @@ long_description = (this_directory / "README.md").read_text(encoding="utf-8")
 
 setup(
     name="ncmpeg",
-    version="0.1.0",
+    version="0.1.8",
     description="A terminal UI for FFmpeg built with Python and ncurses.",
     long_description=long_description,
     long_description_content_type="text/markdown",

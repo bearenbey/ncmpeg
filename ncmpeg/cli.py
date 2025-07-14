@@ -426,7 +426,12 @@ def handle_operation(stdscr, operation, cwd):
     if operation in ops:
         ops[operation](stdscr, cwd)
 
-def main(stdscr):
+def main():
+    import curses
+    curses.wrapper(run_ui)
+
+def run_ui(stdscr):
+    curses.curs_set(0)
     curses.start_color()
     curses.use_default_colors()
     curses.init_pair(1, curses.COLOR_BLACK, curses.COLOR_CYAN)
@@ -457,6 +462,3 @@ def main(stdscr):
                 selected_file += 1
         elif key in [10, 13]:  # Enter
             handle_operation(stdscr, OPERATIONS[selected_op], cwd)
-
-if __name__ == "__main__":
-    curses.wrapper(main)
